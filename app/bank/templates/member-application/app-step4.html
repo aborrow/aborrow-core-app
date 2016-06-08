@@ -1,0 +1,82 @@
+<h1 class="title normal-title text-center">หนี้สิน</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{profile.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{profile.debt_data.saved_at_display}}</em></div>
+</div>
+<form name="form">
+    <div class="form-info">
+        <div class="item col-1">
+            <div>
+                <h4 class="title">จำนวนเงินผ่อนบ้านและรถ (บาท/เดือน)</h4>
+                <input type="text" class="input-info" ng-model="profile.debt_data.mortgage" value="30000" disabled>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">ยอดหนี้บัตรเครดิตและสินเชื่อส่วนบุคคลที่ใช้ในปัจจุบัน (บาท)</h4>
+                <input type="text" class="input-info" ng-model="profile.debt_data.pl" value="30000" disabled>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">จำนวนหนี้ค้างชำระ (บัญชี)</h4>
+                <select class="input-info" ng-model="profile.debt_data.delinquency" disabled>
+                    <option value="">กรุณาเลือก</option>
+					<option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>มากกว่า 3 บัญชี</option>
+				</select>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">ประวัติการปรับโครงสร้างหนี้  ในรอบ 3 ปีที่ผ่านมา</h4>
+                <select class="input-info" ng-model="profile.debt_data.restructure" disabled>
+                    <option value="">กรุณาเลือก</option>
+                    <option>0</option>
+                    <option>ไม่มี</option>
+                    <option>มี ช่วง 6 เดือนที่ผ่านมา</option>
+                    <option>มี ช่วง 6 - 12 เดือนที่ผ่านมา</option>
+                    <option>มี ช่วง 1 - 2 ปีที่ผ่านมา มี ช่วง 2 - 3 ปีที่ผ่านมา</option>
+                </select>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">จำนวนเดือนที่ชำระหนี้ล่าช้า 6 เดือนล่าสุด (เดือน)</h4>
+                <select class="input-info" ng-model="profile.debt_data.latepayment" disabled>
+                    <option value="">กรุณาเลือก</option>
+					<option>จ่ายตรงเวลาตลอดในรอบ 6 เดือน</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+				</select>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">อายุบัตรเครดิตใบแรกและที่ยังใช้อยู่ (ปี)</h4>
+                <select class="input-info" ng-model="profile.debt_data.firstcard" disabled>
+                    <option value="">กรุณาเลือก</option>
+                    <option>ไม่ใช้บัตรเครดิต</option>
+					<option>น้อยกว่า 1 ปี</option>
+                    <option>1 - 2 ปี</option>
+                    <option>2 - 3 ปี</option>
+                    <option>มากว่า 3 ปี</option>
+				</select>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">คำอธิบายเพิ่มเติม</h4>
+                <input type="text" class="input-info" ng-model="profile.debt_data.moreExplanation" value="30000" disabled>
+            </div>
+        </div>
+    </div>
+</form>

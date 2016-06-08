@@ -1,0 +1,49 @@
+<h1 class="title normal-title text-center">ข้อมูลการติดต่อ</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{profile.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{profile.contacts.saved_at_display}}</em></div>
+</div>
+<form ng-submit="submitData()" name="form">
+    <div class="form-info">
+        <div class="item col-3">
+            <div class="require">
+                <h4 class="title">โทรศัพท์มือถือ</h4>
+                <input type="number" class="input-info" ng-model="profile.contacts.mobileNumber" value="0867768894" disabled>
+            </div>
+            <div>
+                <h4 class="title">โทรศัพท์บ้าน</h4>
+                <input type="number" class="input-info" ng-model="profile.contacts.homeNumber" value="026432488" disabled>
+            </div>
+            <div>
+                <h4 class="title">เบอร์ต่อ(ถ้ามี)</h4>
+                <input type="number" class="input-info" ng-model="profile.contacts.homeNumber_ext" value="026432488" disabled>
+            </div>
+        </div>
+        <div class="item col-3">
+            <div>
+                <h4 class="title">ความสัมพันธ์กับบุคคลอ้างอิง</h4>
+                <input type="text" class="input-info" ng-model="profile.contacts.preferencePerson_relationship" disabled>
+            </div>
+            <div class="require">
+                <h4 class="title">ชื่อ-นามสกุล บุคคลอ้างอิง</h4>
+                <input type="text" class="input-info" ng-model="profile.contacts.preferencePerson" disabled>
+            </div>
+            <div class="require">
+                <h4 class="title">โทรศัพท์บุคคลอ้างอิง</h4>
+                <input type="number" class="input-info" ng-model="profile.contacts.preferenceNumber" value="0852384322" disabled>
+            </div>
+        </div>
+        <div class="item col-2">
+            <div class="require">
+                <h4 class="title">โทรศัพท์ที่ทำงาน</h4>
+                <input type="number" class="input-info" ng-model="profile.contacts.workNumber" value="026655555" disabled>
+            </div>
+            <div>
+                <h4 class="title">เบอร์ต่อ(ถ้ามี)</h4>
+                <input type="number" class="input-info" ng-model="profile.contacts.workNumber_ext" value="026655555" disabled>
+            </div>
+        </div>
+    </div>
+</form>

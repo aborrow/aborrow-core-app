@@ -1,0 +1,70 @@
+<h1 class="title text-center"> รายละเอียดสินเชื่อ </h1>
+<div class="row offer account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{borrowerCtrl.currentApp.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small"> {{loanDetail.saved_at_display}}</em></div>
+</div>
+<form ng-submit="submitData()" name="form">
+    <div class="form-info">
+        <div class="item col-1 require">
+            <div class="require">
+                <h4 class="title">ประเภทสินเชื่อ</h4>
+                <select class="input-info" ng-model="loanDetail.loanType" required>
+                     <option value="">กรุณาเลือก</option>
+                    <option>สินเชื่อเงินสด</option>
+                    <option>บัตรกดเงินสด</option>
+                </select>
+            </div>
+            <div class="bubble">Hint:</div>
+        </div>
+        <div class="item offer col-1">
+            <div class="require">
+                <h4 class="title" ng-hide="loanDetail.loanType == 'บัตรกดเงินสด'">จำนวนเงินที่ต้องการกู้​ (บาท)</h4>
+                <h4 class="title" ng-show="loanDetail.loanType == 'บัตรกดเงินสด'">วงเงินบัตรที่ต้องการ (บาท)</h4>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <input awnum num-thousand="true" num-int="8" type="text" class="input-info" ng-model="loanDetail.loanAmount" required>
+                    </div>
+                    <div class="col-lg-4 text-right">
+                        <h4 class="text-danger">สูงสุด 5 เท่าของรายได้ต่อเดือน</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="bubble">Hint:สูงสุด 5 เท่าของรายได้ต่อเดือน</div>
+        </div>
+
+        <div class="item col-1 require" ng-hide="loanDetail.loanType == 'บัตรกดเงินสด'">
+            <div class="require">
+                <h4 class="title">ระยะเวลาการกู้ (เดือน)</h4>
+                <select class="input-info" ng-model="loanDetail.loanTerm" required>
+                     <option value="">กรุณาเลือก</option>
+                    <option>6</option>
+                    <option>12</option>
+                    <option>18</option>
+                    <option>24</option>
+                    <option>30</option>
+                    <option>36</option>
+                    <option>42</option>
+                    <option>48</option>
+                    <option>54</option>
+                    <option>60</option>
+                </select>
+            </div>
+            <div class="bubble">Hint:</div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">จุดประสงค์ในการกู้</h4>
+                <select class="input-info" ng-model="loanDetail.purpose">
+                     <option value="">กรุณาเลือก</option>
+				<option>ใช้จ่ายทั่วไป</option>
+				<option>โอนหนี้บัตรเครดิต/สินเชื่อส่วนบุคคล</option>
+			</select>
+            </div>
+
+            <div class="bubble">Hint:</div>
+        </div>
+    </div>
+    <button type="submit" ng-disabled="form.$invalid" class="btn btn-success pull-right btn-lg">ต่อไป</button>
+</form>

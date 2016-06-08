@@ -1,0 +1,75 @@
+<h1 class="title text-center">เอกสาร</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{borrowerCtrl.currentApp.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{documents.saved_at_display}}</em></div>
+</div>
+<form ng-submit="submitData()" name="form">
+    <div class="form-info">
+<!--         <div class="item col-1">
+            <div class="require">
+                <h4 class="title">บัตรประจำตัวประชาชน</h4>
+                <input type="file" class="input-info" ng-model="document.copiesId" placeholder="อัพโหลด">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div class="require">
+                <h4 class="title">เอกสารแสดงรายได้</h4>
+                <input type="file" class="input-info" ng-model="document.incomeStatement" placeholder="อัพโหลด">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">เครดิตบูโร</h4>
+                <input type="file" class="input-info" ng-model="document.creditBureau" placeholder="อัพโหลด">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">สมุดธนาคาร</h4>
+                <input type="file" class="input-info" ng-model="document.bookBank" placeholder="อัพโหลด">
+            </div>
+        </div> -->
+        <div class="item col-1">
+            <div>
+                <h4 class="title">สลิปเงินเดือน เดือนล่าสุด </h4>
+                <!-- <input name="file" type="file" file class="input-info" ng-model="file" placeholder="อัพโหลด">
+                <a class="btn btn-lg" ng-click="upload()">upload</a> -->
+                <file file-id="documents.slip"></file>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">หนังสือรับรองเงินเดือน อายุไม่เกิน 2 เดือน</h4>
+                <!-- <input type="file" class="input-info" ng-model="documents.certificate" placeholder="อัพโหลด"> -->
+                <file file-id="documents.certificate"></file>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div class="required">
+                <h4 class="title">Bank Statement 6 เดือนล่าสุด</h4>
+                <!-- <input type="file" class="input-info" ng-model="documents.statement" placeholder="อัพโหลด"> -->
+                <file file-id="documents.statement"></file>
+            </div>
+        </div>
+        <div class="item col-1" ng-show="loanDetail.purpose == 'โอนหนี้บัตรเครดิต/สินเชื่อส่วนบุคคล'">
+            <div>
+                <h4 class="title">ใบแจ้งหนี้บัตรเครดิต</h4>
+                <!-- <input type="file" class="input-info" ng-model="documents.cc_bill" placeholder="อัพโหลด"> -->
+                <file file-id="documents.cc_bill"></file>
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">เอกสารเพิ่มเติม</h4>
+                <!-- <input type="file" class="input-info" ng-model="documents.additionalDoc" placeholder="อัพโหลด"> -->
+                <file file-id="documents.additionalDoc"></file>
+            </div>
+        </div>
+    </div>
+    <div class="info-button text-right">
+        <button type="button" class="btn btn-lg bg-white" ng-click="previousTab()">ย้อนกลับ</button>
+        <button type="submit" ng-disabled="form.$invalid" class="btn btn-success btn-lg">ต่อไป</button>
+    </div>
+</form>

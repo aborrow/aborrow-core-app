@@ -1,0 +1,103 @@
+<h1 class="title text-center">ข้อมูลการติดต่อ</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{borrowerCtrl.currentApp.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{contacts.saved_at_display}}</em></div>
+</div>
+<form ng-submit="submitData()" name="form">
+    <div class="form-info">
+        <div class="item col-3">
+            <div class="require">
+                <h4 class="title">โทรศัพท์มือถือ</h4>
+                <input type="number" class="input-info" ng-model="contacts.mobileNumber" value="0867768894" required>
+            </div>
+            <div>
+                <h4 class="title">โทรศัพท์บ้าน</h4>
+                <input type="number" class="input-info" ng-model="contacts.homeNumber" value="026432488">
+            </div>
+            <div>
+                <h4 class="title">เบอร์ต่อ(ถ้ามี)</h4>
+                <input type="number" class="input-info" ng-model="contacts.homeNumber_ext" value="026432488">
+            </div>
+        </div>
+        <div class="item col-3">
+            <div>
+                <h4 class="title">ความสัมพันธ์กับบุคคลอ้างอิง</h4>
+                <input type="text" class="input-info" ng-model="contacts.preferencePerson_relationship">
+            </div>
+            <div class="require">
+                <h4 class="title">ชื่อ-นามสกุล บุคคลอ้างอิง</h4>
+                <input type="text" class="input-info" ng-model="contacts.preferencePerson" required>
+            </div>
+            <div class="require">
+                <h4 class="title">โทรศัพท์บุคคลอ้างอิง</h4>
+                <input type="number" class="input-info" ng-model="contacts.preferenceNumber" value="0852384322" required>
+            </div>
+        </div>
+        <!--  <div class="item col-1">
+                <input type="text" class="input-info" ng-model="contacts.preferencePerson">
+            </div>
+            <div class="require">
+                <h4 class="title">โทรศัพท์บุคคลอ้างอิง</h4>
+                <input type="number" class="input-info" ng-model="contacts.preferenceNumber" value="0852384322">
+            </div>
+        </div>
+       <!--  <div class="item col-1">
+            <div class="require">
+                <h4 class="title">ชื่อบริษัท</h4>
+                <input type="text" class="input-info" ng-model="contacts.preferenceCompany" value="บจ.ไวมาร์เมทัลลิค">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div class="require">
+                <h4 class="title">ที่ตั้งสำนักงาน</h4>
+                <textarea class="input-info" ng-model="contacts.workAddress" rows="2">3 ซ.ทองหล่อ 7 ถ.ทองหล่อ แขวงคลองตัน
+เขตคลองเตย กรุงเทพฯ 10111
+			</textarea>
+            </div>
+        </div> -->
+        <div class="item col-2">
+            <div class="require">
+                <h4 class="title">โทรศัพท์ที่ทำงาน</h4>
+                <input type="number" class="input-info" ng-model="contacts.workNumber" value="026655555">
+            </div>
+            <div>
+                <h4 class="title">เบอร์ต่อ(ถ้ามี)</h4>
+                <input type="number" class="input-info" ng-model="contacts.workNumber_ext" value="026655555">
+            </div>
+        </div>
+        <!-- <div class="item  col-2">
+            <div>
+                <h4 class="title">ชื่อจริงคู่สมรส</h4>
+                <input type="text" class="input-info" ng-model="contacts.spouseName" value="เจน">
+            </div>
+            <div>
+                <h4 class="title">โทรศัพท์คู่สมรส</h4>
+                <input type="number" class="input-info" ng-model="contacts.spouseNumber" value="18.00-22.00">
+            </div>
+        </div>
+        <div class="item  col-2">
+            <div>
+                <h4 class="title">เวลาทีสะดวกในการติดต่อ</h4>
+                <select class="input-info" ng-model="contacts.convenientTime">
+                    <option>8:00 - 13:00</option>
+                    <option>13:00 - 17:00</option>
+                    <option>17:00 - 20:00</option>
+                    <option>8:00 - 20:00</option>
+				</select>
+            </div>
+            <div>
+                <h4 class="title">ที่อยู่ที่ให้ส่งเอกสาร</h4>
+                <select class="input-info" ng-model="contacts.mailAddress">
+                    <option>ที่อยู่ปัจจุบัน</option>
+                    <option>ที่อยู่ที่ทำงาน</option>
+				</select>
+            </div>
+        </div> -->
+    </div>
+    <div class="info-button text-right">
+        <button type="button" class="btn btn-lg bg-white" ng-click="previousTab()">ย้อนกลับ</button>
+        <button type="submit" ng-disabled="form.$invalid" class="btn btn-success btn-lg">ต่อไป</button>
+    </div>
+</form>

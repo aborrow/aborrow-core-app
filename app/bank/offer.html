@@ -1,0 +1,131 @@
+<div class="header">
+    <!-- Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo-large.png" class="img-responsive" alt="" /></a>
+                </div>
+                <div class="telephone"> 02 116 8671 </div>
+                <nav class="main-nav">
+                    <div class="member-title"></div>
+                    <ul class="main-menu">
+                        <!-- <li><a >เปลี่ยนรหัสผ่าน</a></li> -->
+                        <li><a>ออกจากระบบ</a></li>
+                        <!-- href="javascript:void(0)" ng-click="borrowerCtrl.logout()" -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="page-cover">
+        <div class="container">
+            <!-- Menu Tab -->
+            <ul class="menu-tab">
+                <li><a ui-sref="bank">DASHBOARD</a></li>
+                <li class="current-menu-item"><a ui-sref="bank">OPERATION</a></li>
+                <li><a>LISTING</a></li>
+                <li><a>SETTING</a></li>
+            </ul>
+            <!-- Menu Tab -->
+        </div>
+    </div>
+</div>
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-8">
+                <h1 class="search-profile-title">ผลลัพธ์การค้นหา > ประวัติผู้ขอกู้ > 
+                    <span class="blue-title">เสนอสินเชื่อ</span></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 borrower-detail">
+                <div class="item offer col-1">
+                    <div class="require">
+                        <h4 class="title borrower-detail-title">จำนวนเงินที่ต้องการกู้ (บาท)</h4>
+                        <h2 class="title blue-title borrower-detail-value">{{profile.loan_detail.loanAmount|number}}</h2>
+                    </div>
+                </div>
+                <div class="item offer col-1">
+                    <div class="require">
+                        <h4 class="title borrower-detail-title">ประเภทสินเชื่อ</h4>
+                        <h2 class="title blue-title borrower-detail-value">{{profile.loan_detail.loanType}}</h2>
+                    </div>
+                </div>
+                <div class="item offer col-1">
+                    <div class="require">
+                        <h4 class="title borrower-detail-title">ระยะเวลาการกู้ (เดือน)</h4>
+                        <h2 class="title blue-title borrower-detail-value">{{profile.loan_detail.loanTerm}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <h1 class="search-profile-title blue-title  text-center">รายละเอียดสินข้อเสนอ</h1>
+                <div class="row offer account-meta">
+                    <div class="col-lg-6">
+                        <p class="small">ID : {{profile.appId}}</p>
+                    </div>
+                    <div class="col-lg-6 text-right"><em class="small"> {{profile.loan_detail.saved_at_display}}</em></div>
+                </div>
+                <form name="form">
+                    <div class="form-info">
+                        <div class="item col-3">
+                            <div>
+                                <h4 class="title">จำนวนเงินที่ให้กู้</h4>
+                                <input type="text" awnum num-thousand="true" num-int="8" class="input-info" ng-model="offer.loadAmount" value="" />
+                            </div>
+                            <div>
+                                <h4 class="title">อัตราดอกเบี้ยต่อปี (%)</h4>
+                                <input type="text" awnum num-thousand="true" num-int="3" class="input-info" ng-model="offer.interest_rate" />
+                            </div>
+                            <div>
+                                <h4 class="title">ระยะเวลาผ่อนชำระ (เดือน)</h4>
+                                <input type="text" awnum num-thousand="true" num-int="3" class="input-info" ng-model="offer.loanTerm" value="" />
+                            </div>
+                        </div>
+                        <div class="item col-1">
+                            <div>
+                                <h4 class="title">ยอดผ่อนชำระต่อเดือน (บาท)</h4>
+                                <input type="text" awnum num-thousand="true" num-int="8" class="input-info" ng-model="offer.installments" value="" />
+                            </div>
+                        </div>
+                        <div class="item col-1">
+                            <div>
+                                <h4 class="title">เอกสารประกอบการสมัคร</h4>
+                                <div class="offer-doc-col">
+                                    <div class="checkbox" ng-repeat="doc in documents">
+                                        <label>
+                                        <input type="checkbox" name="{{doc.text}}" ng-model="doc.checked" value="">
+                                        {{doc.text}} 
+                                        </label>
+                                        <div ng-if="doc.text === 'อื่นๆ'">
+                                            <textarea name="remark" class="form-control" rows="3" ng-model="doc.remark"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item col-1">
+                            <div>
+                                <h4 class="title">ระยะเวลาอนุมัติ หลังได้รับเอกสาร (วัน)</h4>
+                                <input type="text" awnum num-thousand="true" num-int="8" class="input-info" ng-model="offer.period" value="" />
+                            </div>
+                        </div>
+                        <div class="item col-1">
+                            <div>
+                                <h4 class="title">หมายเหตุ</h4>
+                                <input type="text" class="input-info" ng-model="offer.remark" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" 
+                    class="btn btn-lg btn-success text-center" 
+                    style="display:block;margin:0 auto;" ng-click="sendOffer()">เสนอสินเชื่อ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

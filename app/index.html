@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>aBorrow - Borrower</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World!</title>
+    <!-- Bootstrap & CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/colorbox.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="assets/css/offer_style.css" rel="stylesheet">
+    <link href="assets/css/offer_responsive.css" rel="stylesheet">
+</head>
+
+<body ng-app="angularfireSlackApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <ui-view></ui-view>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        ! function(A, n, g, u, l, a, r) {
+            A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
+                    (A[l].q = A[l].q || []).push(arguments)
+                }, A[l].l = +new Date, a = n.createElement(g),
+                r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+        }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-md5/angular-md5.js"></script>
+    <script src="bower_components/aws-sdk/dist/aws-sdk.js"></script>
+    <script src="bower_components/angular-aws-s3-upload/angular-s3.min.js"></script>
+    <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="assets/js/jquery-2.2.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.colorbox-min.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <!-- <script src="assets/js/angular.min.js "></script> -->
+    <script src="assets/js/angular-route.min.js "></script>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/dynamic-number.min.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/sticky.min.js"></script>
+    <script src="assets/js/angular-bootstrap-checkbox.js"></script>
+    <script src="assets/js/ng-order-object-by.js"></script>
+    <script src="assets/js/sb-date-select.js"></script>
+    <script src="assets/js/rorymadden-date-dropdowns.js"></script>
+    <script src="assets/js/lodash.min.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="app.js"></script>
+    <script src="directives.js"></script>
+    <script src="auth/auth.controller.js"></script>
+    <script src="auth/auth.service.js"></script>
+    <script src="users/users.service.js"></script>
+    <script src="users/profile.controller.js"></script>
+    <!-- endbuild -->
+    <script src="borrowers/borrowers.service.js"></script>
+    <script src="borrowers/banks.service.js"></script>
+    <script src="borrowers/borrowers.controller.js"></script>
+
+
+    <script src="borrowers/offers.controller.js"></script>
+    <script src="bank/bank.controller.js"></script>
+    <script src="bank/bank.profile.controller.js"></script>
+    <script src="bank/bank.offer.controller.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("click ", '.toggle-button', function() {
+                $('.toggle-wrapper').slideToggle('fast');
+            });
+
+            $(document).on("click ", '.accept-button', function() {
+                $(this).toggleClass('accepted');
+                $('.waiting-for-accept').toggleClass('accepted');
+            });
+
+            $('.popup-call').colorbox({
+                inline: true,
+                width: "25%",
+                closeButton: false
+            });
+            $('.close-btn').click(function() {
+                $.colorbox.close();
+            });
+
+        });
+    </script>
+</body>
+
+</html>

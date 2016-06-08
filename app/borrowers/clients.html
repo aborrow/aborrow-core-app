@@ -1,0 +1,284 @@
+
+<div ng-app="app" ng-controller="clientController">
+<!-- Page Header -->
+
+<div class="login" ng-hide="authData">
+<div>
+	<div class="login-box">
+		<form class="login-form">
+			<input type="email" class="form-control" ng-model="email" placeholder="อีเมล์แอดเดรส">
+			<input type="password" class="form-control" ng-model="password" placeholder="รหัสผ่าน">
+			<a class="btn -blue -round" ng-click="login()">เข้าสู่ระบบ</a>
+		</form>
+	</div>
+</div>
+</div>
+<!-- <div >
+<div class="login">
+	<div class="login-box">
+		<h1 class="title">เข้าสู่ระบบ</h1>
+		<form class="login-form">
+			<input type="text" class="form-control" ng-model="email" placeholder="อีเมล์แอดเดรส">
+			<input type="password" class="form-control" ng-model="password" placeholder="รหัสผ่าน">
+			<a class="btn -blue -round" ng-click="">เข้าสู่ระบบ</a>
+		</form>
+	</div>
+</div>
+</div> -->
+
+<div class="main-list" ng-show="authData">
+<section class="section-padding">
+	<div class="container">
+		<div class="row">
+		<div class="list-compare"  ng-repeat="u in user_data | orderObjectBy:'date':true">
+			<div class="compare-item">
+			<div class="padding">
+			<section  class="collapse-box">
+				<header class="collapse-head">
+						{{u.date}}
+						<br>
+						<h3>{{u.user.name}}  |  โทร. {{u.user.phone}}</h3>
+					<!-- <h3>{{u.user.name}} - T.{{u.user.phone}}</h3> -->
+				</header>
+				<article class="collapse-body collapse">
+					<table class="table">
+						<tr>
+							<td>Borrower</td>
+							<td>
+								<li>Name: {{u.user.name}}</li>
+								<li>Phone: {{u.user.phone}}</li>
+								<li>Email: {{u.user.email}}</li>
+							</td>
+						</tr>
+						<tr>
+							<td>ประเภทสินเชื่อ</td>
+							<td>
+								{{u.loan_type}}
+							</td>
+						</tr>
+						<tr>
+							<td>Loan Amount</td>
+							<td>
+								{{u.loanAmount | number:0}}
+							</td>
+						</tr>
+						<tr>
+							<td>Loan Term</td>
+							<td>
+								{{u.loanTerm}} months
+							</td>
+						</tr>
+						<tr>
+							<td>Occupation</td>
+							<td>
+								{{u.occupation}}
+							</td>
+						</tr>
+						<tr>
+							<td>Salary</td>
+							<td>
+								{{u.salary | number:0}} บาทต่อเดือน
+							</td>
+						</tr>
+						<tr>
+							<td>อายุงาน</td>
+							<td>
+								{{u.work_exp}} เดือน
+							</td>
+						</tr>
+
+						<tr ng-show="u.selectedLoans">
+							<td style="vertical-align:top;">
+								สินเชื่อที่เลือก
+								<!-- <div class="button">
+													<a ng-repeat="l in u.selectedLoans" class="btn -loandetailsub" href="#info{{l.eng_name}}" role="tab" data-toggle="tab">
+
+															<img style="max-width: 30px; vertical-align:middle;" ng-src="{{l.logo}}" class="img-responsive" alt="">
+															{{l.bank_name}}
+													</a>
+								</div> -->
+							</td>
+							<td width="70%">
+								<section  class="collapse-box"  ng-repeat="l in u.selectedLoans">
+									<header class="collapse-head">
+										<!-- <div>
+											<img style="max-width: 30px; vertical-align:middle;" ng-src="{{l.logo}}" class="img-responsive" alt="">
+											<span>{{l.bank_name}}</span>
+										</div> -->
+										<!-- <div class="col-lg-1">
+											<img style="max-width: 30px; vertical-align:middle;" ng-src="{{l.logo}}" class="img-responsive" alt="">
+										</div>
+										<div class="col-lg-11">
+											<p vertical-align="middle">{{l.bank_name}}</p>
+										</div> -->
+										{{l.bank_name}}
+
+									</header>
+									<article class="collapse-body collapse">
+										<table class="table" >
+											<tr>
+												<td>Interests</td>
+												<td>{{l.interest.min || 0}}-{{l.interest.max || 0}}%</td>
+											</tr>
+											<tr>
+												<td width="30%">ดอกเบี้ยตามเงื่อนไขและคุณสมบัติผู้กู้</td>
+												<td>{{l.preciseInt || '-'}}%</td>
+											</tr>
+											<tr>
+												<td>ชำระต่อเดือน</td>
+												<td>{{l.monthlyRepayment}}บาท</td>
+											</tr>
+											<tr>
+												<td>คุณสมบัติ</td>
+												<td>{{l.qualifications[u.occupation]}}</td>
+											</tr>
+											<tr>
+												<td>เอกสาร</td>
+												<td>{{l.documents[u.occupation] | json:4}}</td>
+											</tr>
+										</table>
+									</article>
+								</section>
+							<!-- <div ng-repeat="l in u.selectedLoans" role="tabpanel" class="tab-pane active" id="info{{l.eng_name}}">
+													<table class="table" >
+															<tr>
+																<td>Interests</td>
+																<td>{{l.interest.min || 0}}-{{l.interest.max || 0}}%</td>
+															</tr>
+															<tr>
+																<td>ดอกเบี้ยตามเงื่อนไขและคุณสมบัติผู้กู้</td>
+																<td>{{l.precieInt || '-'}}%</td>
+															</tr>
+															<tr>
+																<td>ชำระต่อเดือน</td>
+																<td>{{l.monthlyRepayment}}บาท</td>
+															</tr>
+															<tr>
+																<td>คุณสมบัติ</td>
+																<td>{{l.qualifications[u.occupation]}}</td>
+															</tr>
+															<tr>
+																<td>เอกสาร</td>
+																<td>{{l.documents[u.occupation] | json:4}}</td>
+															</tr>
+														</table>
+												</div> -->
+								<!-- <div class="button" style="width:100%;">
+									<a href="javascript:void(0)" class="btn -loandetail">แสดงรายละเอียด</a>
+								</div>
+								<div class="expand-info">
+									<div class="tab-content">
+												<div class="button">
+													<a ng-repeat="l in u.selectedLoans" class="btn -loandetailsub" href="#info{{l.eng_name}}" role="tab" data-toggle="tab">
+
+															<img style="max-width: 30px; vertical-align:middle;" ng-src="{{l.logo}}" class="img-responsive" alt="">
+															{{l.bank_name}}
+													</a>
+												</div>
+												<div ng-repeat="l in u.selectedLoans" role="tabpanel" class="tab-pane active" id="info{{l.eng_name}}">
+													<table class="table" >
+															<tr>
+																<td>Interests</td>
+																<td>{{l.interest.min || 0}}-{{l.interest.max || 0}}%</td>
+															</tr>
+															<tr>
+																<td>ดอกเบี้ยตามเงื่อนไขและคุณสมบัติผู้กู้</td>
+																<td>{{l.precieInt || '-'}}%</td>
+															</tr>
+															<tr>
+																<td>ชำระต่อเดือน</td>
+																<td>{{l.monthlyRepayment}}บาท</td>
+															</tr>
+															<tr>
+																<td>คุณสมบัติ</td>
+																<td>{{l.qualifications[u.occupation]}}</td>
+															</tr>
+															<tr>
+																<td>เอกสาร</td>
+																<td>{{l.documents[u.occupation] | json:4}}</td>
+															</tr>
+														</table>
+												</div>
+									</div>
+								</div> -->
+							</td>
+						</tr>
+					</table>
+					</article>
+			</section>
+			</div>
+			</div>
+		</div>
+
+		</div>
+	</div>
+</section>
+</div>
+
+</div>
+
+
+<!-- <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDg1Hfu7KlBd6u51q8NE80_yet4yDix9Jc",
+    authDomain: "aborrow-e765a.firebaseapp.com",
+    databaseURL: "https://aborrow-e765a.firebaseio.com",
+    storageBucket: "aborrow-e765a.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.colorbox-min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/angular-route.min.js"></script>
+<script src="assets/js/firebase.js"></script>
+<script src="assets/js/angularfire.min.js"></script>
+<script src="assets/js/dynamic-number.min.js"></script>
+<script src="assets/js/tabs.js"></script>
+<script src="assets/js/sticky.min.js"></script>
+<script src="assets/js/angular-bootstrap-checkbox.js"></script>
+<script src="assets/js/ng-order-object-by.js"></script>
+<script src="app/app.js"></script>
+<script src="app/controller.js"></script> -->
+<script>
+    $(document).ready(function() {
+        $(window).bind('scroll', function() {
+            if ($(window).scrollTop() > 0) {
+                $("#main-header").addClass('fixed-header');
+				$("#main-header").removeClass('not-fixed-header');
+            } else {
+                $("#main-header").removeClass('fixed-header');
+				$("#main-header").addClass('not-fixed-header');
+            }
+        });
+		$('#mobile_nav_menu').on("click",function(){
+
+			//$('#mobile_menu').toggleClass('slidedown');
+			//$('#mobile_menu').toggleClass('slideup');
+			if($('#mobile_menu').hasClass('opened')){
+				toggleSilde();
+				setTimeout(function(){ $('#mobile_menu').removeClass('opened'); }, 600);
+
+			}else{
+				$('#mobile_menu').addClass('opened');
+
+				setTimeout(function(){ toggleSilde(); }, 100);
+
+
+			}
+
+		});
+
+    });
+	function toggleSilde()
+	{
+		if ($("#mobile_menu").hasClass("slideup"))
+			$("#mobile_menu").removeClass("slideup").addClass("slidedown");
+		else
+			$("#mobile_menu").removeClass("slidedown").addClass("slideup");
+	}
+</script>

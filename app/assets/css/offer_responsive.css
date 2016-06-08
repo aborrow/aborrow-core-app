@@ -1,0 +1,32 @@
+/* Scss Document */
+/* XS */
+/* LARGE SCREEN */
+
+  @media (max-width: 769px){
+      #offer-content {
+         display: flex;
+         flex-direction: column;
+      }
+
+      #offer-content > .col-md-3{
+          order: 2;
+      }
+  }
+  @media (max-width: 480px){
+      .form-info.offer>.item.col-3>div,
+      .form-info.offer>.item.col-2>div{
+          width: auto;
+          float: none;
+      }
+      .compare-item.offer .btn.-loaninterest,
+      .compare-item.offer .btn.-loandetail{
+           width: 50%;
+      }
+      .compare-item.offer .btn.-loandetailsub{
+           width: 100%;
+      }
+      .compare-item.offer .btn.-loandetailsub.selected {
+          width: 100%;
+          height: auto;
+      }
+  }

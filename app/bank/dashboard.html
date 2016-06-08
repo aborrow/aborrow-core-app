@@ -1,0 +1,170 @@
+<div class="header">
+    <!-- Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo-large.png" class="img-responsive" alt="" /></a>
+                </div>
+                <div class="telephone"> 02 116 8671 </div>
+                <nav class="main-nav">
+                    <div class="member-title"></div>
+                    <ul class="main-menu">
+                        <!-- <li><a >เปลี่ยนรหัสผ่าน</a></li> -->
+                        <li><a>ออกจากระบบ</a></li>
+                        <!-- href="javascript:void(0)" ng-click="borrowerCtrl.logout()" -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="page-cover">
+        <div class="container">
+            <!-- Menu Tab -->
+            <ul class="menu-tab">
+                <li><a ui-sref="bank">DASHBOARD</a></li>
+                <li class="current-menu-item"><a ui-sref="bank">OPERATION</a></li>
+                <li><a>LISTING</a></li>
+                <li><a>SETTING</a></li>
+            </ul>
+            <!-- Menu Tab -->
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 sidebar-filter">
+                <!-- Filter Form -->
+                <div class="form-filter">
+                    <section class="collapse-box">
+                        <header class="collapse-head">
+                            <h3>ข้อมูลสินเชื่อ</h3>
+                        </header>
+                        <article class="collapse-body">
+                            <h4>ประเภทสินเชื่อ</h4>
+                            <div class="checkbox" ng-repeat="loan in filter.loanTypes">
+                                <label>
+									<input type="checkbox" name="{{loan.text}}" ng-model="loan.checked" />
+									{{loan.text}} </label>
+                            </div>
+                            <h4>วงเงินสินเชื่อ</h4>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.loanMinAmount" placeholder="ขั้นต่ำ(บาท)">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.loanMaxAmount" placeholder="สูงสุด(บาท)">
+                                </div>
+                            </form>
+                        </article>
+                    </section>
+
+                    <section class="collapse-box">
+                        <header class="collapse-head">
+                            <h3>ข้อมูลการทำงาน</h3>
+                        </header>
+                        <article class="collapse-body">
+                            <h4>ประเภทอาชีพ</h4>
+                            <div class="checkbox" ng-repeat="occupation in filter.occupations">
+                                <label>
+									<input type="checkbox" name="{{occupation.text}}" ng-model="occupation.checked" value="">
+									{{occupation.text}} </label>
+                            </div>
+
+                            <h4>อายุงานขั้นต่ำ</h4>
+
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" ng-model="filter.serviceYear" placeholder="ปี">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" ng-model="filter.serviceMonth" placeholder="เดือน">
+                                    </div>
+                                </div>
+                            </form>
+
+                            <h4>รายได้ต่อเดือนขั้นต่ำ(บาท)</h4>
+                            <p>ฐานเงินเดือน + รายได้ที่เท่ากันทุกเดือน</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.income">
+                                </div>
+                            </form>
+
+                        </article>
+                    </section>
+
+                    <section class="collapse-box">
+                        <header class="collapse-head">
+                            <h3>ข้อมูลหนี้สิน</h3>
+                        </header>
+                        <article class="collapse-body">
+                            <h4>จำนวนบัญชีหนี้สินค้างชำระ</h4>
+                            <p>เท่ากับหรือน้อยกว่า (บัญชี)</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.delinquency">
+                                </div>
+                            </form>
+
+                            <h4>จำนวนเดือนที่ชำระล่าช้า 6 เดือนล่าสุด</h4>
+                            <p>เท่ากับหรือน้อยกว่า (บัญชี)</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.latepayment">
+                                </div>
+                            </form>
+
+                            <h4>อัตราส่วนยอดผ่อนชำระบ้านและรถ ต่อ รายได้ต่อเดือน</h4>
+                            <p>ไม่เกินร้อยละ</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.mortgage">
+                                </div>
+                            </form>
+
+                            <h4>อัตราส่วนหนี้บัตรเครดิตและสินเชื่อส่วนบุคคล</h4>
+                            <p>ไม่เกินร้อยละ</p>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="filter.pl">
+                                </div>
+                            </form>
+
+                        </article>
+                    </section>
+                </div>
+                <!-- Filter Form -->
+            </div>
+            <div class="col-lg-9">
+                <h2 class="title">ผลลัพธ์การค้นหา</h2>
+                <div class="applicationList">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>วันที่สมัคร</th>
+                                <th>ประเภทอาชีพ</th>
+                                <th>จังหวัด</th>
+                                <th>รายได้ต่อเดือน</th>
+                                <th>จำนวนเงินกู้</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="application in filterUserList()">
+                                <td>{{application.date}}</td>
+                                <td>{{application.current_app.work_history.career}}</td>
+                                <td>{{application.current_app.personal_data.province}}</td>
+                                <td>{{application.current_app.work_history.baseIncome| number}}</td>
+                                <td>{{application.current_app.loan_detail.loanAmount | number}}</td>
+                                <td><a ui-sref="bankUserProfile({uid:application.$id})">view profile</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

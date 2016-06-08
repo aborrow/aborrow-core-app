@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World!</title> -->
+    <!-- Bootstrap & CSS -->
+<!--     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/colorbox.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet"> -->
+
+<!-- </head> -->
+
+<!-- <body> -->
+    <!-- <div ng-app="app"> -->
+        <!-- Page Header -->
+        <div class="header">
+            <!-- Header -->
+            <div class="top-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/img/logo-large.png" class="img-responsive" alt="" /></a>
+                        </div>
+                        <div class="telephone"> 02 116 8671 </div>
+                        <nav class="main-nav">
+                            <div class="member-title">{{borrowerCtrl.profile.email}}</div>
+                            <ul class="main-menu">
+                                <!-- <li><a >เปลี่ยนรหัสผ่าน</a></li> -->
+                                <li><a >ออกจากระบบ</a></li>
+                                <!-- href="javascript:void(0)" ng-click="borrowerCtrl.logout()" -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="page-cover">
+                <div class="container">
+                    <!-- Menu Tab -->
+                    <ul class="menu-tab">
+                        <li><a ui-sref="offers">ข้อเสนอ <span class="offers-noti">9</span></a></li>
+                        <li class="current-menu-item"><a ui-sref="borrower">สมัครกู้</a></li>
+                        <li><a>ประวัติการทำรายการ</a></li>
+                        <li><a>เครื่องมือคำนวณเงินกู้</a></li>
+                    </ul>
+                    <!-- Menu Tab -->
+                </div>
+            </div>
+        </div>
+        <section class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+
+                        <!-- Nav tabs -->
+                        <ul class="sidetab-menu" role="tablist">
+                            <li role="presentation" ng-class="{'active': selectedTab==0}"><a href="javascript:void(0)" ng-click="openTab(0)">รายละเอียดสินเชื่อ</a></li>
+                            <li role="presentation" ng-class="{'active': selectedTab==1}"><a href="javascript:void(0)"  ng-click="openTab(1)">ข้อมูลส่วนตัว</a></li>
+                            <li role="presentation" ng-class="{'active': selectedTab==2}"><a href="javascript:void(0)" ng-click="openTab(2)">ประวัติการทำงาน</a></li>
+                            <li role="presentation" ng-class="{'active': selectedTab==3}"><a href="javascript:void(0)" ng-click="openTab(3)">หนี้สิน</a></li>
+                            <li role="presentation" ng-class="{'active': selectedTab==4}"><a href="javascript:void(0)" ng-click="openTab(4)">เอกสาร</a></li>
+                            <li role="presentation" ng-class="{'active': selectedTab==5}"><a href="javascript:void(0)" ng-click="openTab(5)">ข้อมูลการติดต่อ</a></li>
+                            <li role="presentation" ng-class="{'active': selectedTab==6}"><a href="javascript:void(0)" ng-click="openTab(6)">การเปิดเผยข้อมูล</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="tab-1">
+                                <div ng-include="templateURL"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="display:none;">
+            <div id="confirm" class="popupbox">
+                <h1>ยืนยันการส่งใบสมัคร</h1>
+                <p>ID: {{borrowerCtrl.currentApp.appId}}</p>
+                <div class="button"> <a href="javascript:void(0)" class="btn btn-default btn-lg close-btn">ย้อนกลับ</a> <a href="#success" class="btn btn-success btn-lg popup-call">ยืนยัน</a> </div>
+            </div>
+        </div>
+        <div style="display:none;">
+            <div id="success" class="popupbox">
+                <h1>ระบบได้รับใบสมัครของคุณแล้ว</h1>
+                <p>ID: {{borrowerCtrl.currentApp.appId}}</p>
+                <div class="button"> <a href="javascript:void(0)" class="btn  -blue btn-lg">ตรวจสอบสถานะ</a> </div>
+            </div>
+        </div>
+    <!-- </div> -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --><!--
+    <script src="assets/js/jquery-2.2.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.colorbox-min.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/angular.min.js "></script>
+    <script src="assets/js/angular-route.min.js "></script>
+    <script src="app/app.js "></script>
+    <script src="app/controller.js "></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("click ", '.toggle-button', function() {
+                $('.toggle-wrapper').slideToggle('fast');
+            });
+
+            $(document).on("click ", '.accept-button', function() {
+                $(this).toggleClass('accepted');
+                $('.waiting-for-accept').toggleClass('accepted');
+            });
+
+            $('.popup-call').colorbox({
+                inline: true,
+                width: "25%",
+                closeButton: false
+            });
+            $('.close-btn').click(function() {
+                $.colorbox.close();
+            });
+
+        });
+    </script>
+</body>
+
+</html> -->

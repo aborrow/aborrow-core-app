@@ -1,0 +1,159 @@
+<h1 class="title normal-title text-center">ข้อมูลส่วนตัว</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{profile.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{profile.personal_data.saved_at_display}}</em></div>
+</div>
+<form ng-submit="submitData()" name="form">
+    <div class="form-info">
+        <div class="item col-2">
+            <div class="require">
+                <h4 class="title">คำนำหน้าชื่อ</h4>
+                <select class="input-info" ng-model="profile.personal_data.gender" disabled>
+                  <option value="">กรุณาเลือก</option>
+                  <option>นาย</option>
+                  <option>นาง</option>
+                  <option>นางสาว</option>
+                  <option>อื่นๆ</option>
+                </select>
+            </div>
+            <div class="require">
+                <!-- <h4 class="title">อายุ (ปี)</h4> -->
+                <h4 class="title">วัน เดือน ปี พ.ศ. ที่เกิด</h4>
+                <!-- <input type="number" class="input-info" ng-model="personalDetail.age" value="35" required> -->
+                <!-- <div sb-date-select ng-model="personalDetail.birthDate"></div> -->
+                <input rsmdatedropdowns class="input-info" ng-model="profile.personal_data.birthDate" disabled> {{personalDetail.birthDate}}
+            </div>
+        </div>
+        <div class="item col-2">
+            <div class="require">
+                <h4 class="title">ชื่อจริง</h4>
+
+                <input type="text" class="input-info" ng-model="profile.personal_data.name" value="จอห์น" disabled />
+            </div>
+            <div class="require">
+                <h4 class="title">นามสกุล</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.surname" value="โด" disabled />
+            </div>
+        </div>
+        <div class="item col-1">
+            <div class="require">
+                <h4 class="title">เลขประจำตัวประชาชน</h4>
+                <!-- <input type="text" class="input-info" maxlength="13" ng-model="personalDetail.personalID" awnum  num-thousand='true' num-thousand-sep="-" required>
+                <input type='text' ng-trim=false ng-model='value4' awnum num-sep=',' num-int=13 num-thousand=true num-thousand-sep="{{' '}}"> -->
+                <input type="text" class="input-info" ng-model="profile.personal_data.personalID" ui-mask="9 9999 99999 99 9" ui-mask-placeholder ui-mask-placeholder-char="space" disabled />
+            </div>
+        </div>
+        <div class="item col-3">
+            <div class="require">
+                <h4 class="title">ที่อยู่ปัจจุบัน - รหัสไปรษณีย์</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.zip_code" value="" disabled>
+            </div>
+            <div class="require">
+                <h4 class="title">จังหวัด</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.province" value="" disabled>
+            </div>
+            <div class="require">
+                <h4 class="title">อำเภอ/เขต</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.amphur" value="" disabled>
+            </div>
+        </div>
+        <div class="item col-3">
+            <div class="require">
+                <h4 class="title">ตำบล/แขวง</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.tumbon" value="" disabled />
+            </div>
+            <div>
+                <h4 class="title">ถนน</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.street" disabled />
+            </div>
+            <div>
+                <h4 class="title">ซอย</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.soi" value="" disabled/>
+            </div>
+        </div>
+        <div class="item col-3">
+            <div class="require">
+                <h4 class="title">บ้านเลขที่</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.house_no" value="" disabled/>
+            </div>
+            <div>
+                <h4 class="title">หมู่</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.moo" value="" disabled />
+            </div>
+            <div>
+                <h4 class="title">หมู่บ้าน/อาคาร</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.building" value="" disabled/>
+            </div>
+        </div>
+        <div class="item col-2">
+            <div>
+                <h4 class="title">ชั้น</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.floor" value="" disabled />
+            </div>
+            <div>
+                <h4 class="title">ห้อง</h4>
+                <input type="text" class="input-info" ng-model="profile.personal_data.room_no" value="" disabled />
+            </div>
+        </div>
+        <div class="item col-2">
+            <div class="require">
+                <h4 class="title">การศึกษา</h4>
+                <select class="input-info" ng-model="profile.personal_data.education" disabled>
+                     <option value="">กรุณาเลือก</option>
+                    <option>ประถมศึกษา</option>
+                    <option>มัธยมศึกษา</option>
+                    <option>ปวส./ปวช./อนุปริญญา</option>
+                    <option>ปริญญาตรี</option>
+                    <option>ปริญญาโทหรือสูงกว่า</option>
+                </select>
+            </div>
+            <div>
+                <h4 class="title">สถานภาพที่อยู่อาศัย</h4>
+                <select class="input-info" ng-model="profile.personal_data.homeOwnership" disabled>
+                    <option value="">กรุณาเลือก</option>
+                    <option>บ้านตนเอง/คู่สมรส</option>
+                    <option>บ้านครอบครัว</option>
+                    <option>บ้านพักสวัสดิการ</option>
+                    <option>บ้านเพื่อน</option>
+                    <option>บ้านเช่า</option>
+                    <option>ผ่อนอยู่</option>
+                </select>
+            </div>
+        </div>
+        <div class="item col-3">
+            <div class="require">
+                <h4 class="title">สถานภาพสมรส</h4>
+                <select class="input-info" ng-model="profile.personal_data.family" disabled>
+                     <option value="">กรุณาเลือก</option>
+                        <option>โสด</option>
+                        <option>สมรส</option>
+                        <option>หย่า</option>
+                        <option>หม้าย</option>
+                    </select>
+            </div>
+            <div>
+                <h4 class="title">จำนวนบุตร</h4>
+                <input type="number" class="input-info" ng-model="profile.personal_data.children" value="2" disabled/>
+            </div>
+            <div>
+                <h4 class="title">รายได้คู่ครอง (บาท/เดือน)</h4>
+                <input type="number" class="input-info" ng-model="profile.personal_data.spouseIncome" value="2" disabled/>
+            </div>
+        </div>
+        <div class="item col-1">
+
+            <div>
+                <h4 class="title">ความสัมพันธ์ผู้อ้างอิง</h4>
+                <select class="input-info" ng-model="profile.personal_data.referenceRelationship" disabled>
+                     <option value="">กรุณาเลือก</option>
+                    <option>คู่สมรส</option>
+                    <option>บิดา</option>
+                    <option>มารดา</option>
+                    <option>ญาติ</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,57 @@
+<h1 class="title text-center">การเปิดเผยข้อมูล</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{borrowerCtrl.currentApp.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{contacts.saved_at_display}}</em></div>
+</div>
+<form>
+    <div class="form-info">
+        <div class="item text-center">
+            <div>
+                <h3>ข้าพเจ้าต้องการเปิดเผยข้อมูลให้แก่สถาบันการเงิน ดังนี้</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bureau-accept text-center">
+                <div style="margin-left:-40px;" class="checkbox">
+                      <label for="checkbox-all">
+                         <!-- <div class="col-lg-1"> -->
+                         <input type="checkbox" ng-checked="borrowerCtrl.selected_banks.length == 9" ng-click="borrowerCtrl.selectAllBanks()"> เลือกทั้งหมด
+                    </label>
+                </div>
+                <div class="padding" ng-repeat="b in borrowerCtrl.banks">
+                  <div class="checkbox">
+                      <label for="checkbox-{{b.eng_name}}">
+  					             <!-- <div class="col-lg-1"> -->
+                         <input type="checkbox" ng-model="borrowerCtrl.selected_banks[b.eng_name]">
+                         <!-- </div> -->
+<!--                             <div><img style="max-width: 40px; vertical-align:middle;" ng-src="{{b.logo}}" class="img-responsive" alt=""></div> -->
+                          <div>{{b.bank_name}}</div>
+                      </label>
+                  </div>
+                </div>
+
+                <h3>ข้าพเจ้ายอมรับ <a href="#">เงื่อนไขและข้อตกลง</a> ของ aBorrow.com<br>
+				ใน
+				การเปิดเผยข้อมูลแก่สถาบันที่ข้าพเจ้าเลือก</h3>
+                <a href="javascript:void(0)" ng-click="acceptTerm()" class="accept-button">ยอมรับ</a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="info-button text-right">
+    <a class="btn btn-lg" ng-click="previousTab()">ย้อนกลับ</a>
+    <a class="btn btn-lg btn-success" ng-disabled="!isAcceptTerm" ng-click="saveTermData()">ส่งใบสมัคร</a>
+    <!-- waiting-for-accept popup-call -->
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.popup-call').colorbox({
+            inline: true,
+            width: "25%",
+            closeButton: false
+        });
+    });
+</script>

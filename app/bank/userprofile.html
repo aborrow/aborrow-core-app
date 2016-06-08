@@ -1,0 +1,70 @@
+<div class="header">
+    <!-- Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo-large.png" class="img-responsive" alt="" /></a>
+                </div>
+                <div class="telephone"> 02 116 8671 </div>
+                <nav class="main-nav">
+                    <div class="member-title"></div>
+                    <ul class="main-menu">
+                        <!-- <li><a >เปลี่ยนรหัสผ่าน</a></li> -->
+                        <li><a>ออกจากระบบ</a></li>
+                        <!-- href="javascript:void(0)" ng-click="borrowerCtrl.logout()" -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="page-cover">
+        <div class="container">
+            <!-- Menu Tab -->
+            <ul class="menu-tab">
+                <li><a ui-sref="bank">DASHBOARD</a></li>
+                <li class="current-menu-item"><a ui-sref="bank">OPERATION</a></li>
+                <li><a>LISTING</a></li>
+                <li><a>SETTING</a></li>
+            </ul>
+            <!-- Menu Tab -->
+        </div>
+    </div>
+</div>
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-8">
+                <h1 class="search-profile-title">ผลลัพธ์การค้นหา > <span class="blue-title">ประวัติผู้ขอกู้</span></h1>
+            </div>
+            <div class="col-lg-2" style="padding-top:20px;">
+                <a ui-sref="bankUserOffer({uid:uid})" class="btn btn-lg btn-success">ส่งข้อเสนอ</a>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-3">
+
+                <!-- Nav tabs -->
+                <ul class="sidetab-menu" role="tablist">
+                    <li role="presentation" ng-class="{'active': selectedTab==0}"><a href="javascript:void(0)" ng-click="openTab(0)">รายละเอียดสินเชื่อ</a></li>
+                    <li role="presentation" ng-class="{'active': selectedTab==1}"><a href="javascript:void(0)" ng-click="openTab(1)">ข้อมูลส่วนตัว</a></li>
+                    <li role="presentation" ng-class="{'active': selectedTab==2}"><a href="javascript:void(0)" ng-click="openTab(2)">ประวัติการทำงาน</a></li>
+                    <li role="presentation" ng-class="{'active': selectedTab==3}"><a href="javascript:void(0)" ng-click="openTab(3)">หนี้สิน</a></li>
+                    <li role="presentation" ng-class="{'active': selectedTab==4}"><a href="javascript:void(0)" ng-click="openTab(4)">เอกสาร</a></li>
+                    <li role="presentation" ng-class="{'active': selectedTab==5}"><a href="javascript:void(0)" ng-click="openTab(5)">ข้อมูลการติดต่อ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-7">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab-1">
+                        <div ng-include="templateURL"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

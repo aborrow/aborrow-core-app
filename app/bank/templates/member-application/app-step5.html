@@ -1,0 +1,65 @@
+<h1 class="title normal-title text-center">เอกสาร</h1>
+<div class="row account-meta">
+    <div class="col-lg-6">
+        <p class="small">ID : {{profile.appId}}</p>
+    </div>
+    <div class="col-lg-6 text-right"><em class="small">{{profile.documents.saved_at_display}}</em></div>
+</div>
+<form name="form">
+    <div class="form-info">
+        <!--         <div class="item col-1">
+            <div class="require">
+                <h4 class="title">บัตรประจำตัวประชาชน</h4>
+                <input type="file" class="input-info" ng-model="document.copiesId" placeholder="อัพโหลด">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div class="require">
+                <h4 class="title">เอกสารแสดงรายได้</h4>
+                <input type="file" class="input-info" ng-model="document.incomeStatement" placeholder="อัพโหลด">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">เครดิตบูโร</h4>
+                <input type="file" class="input-info" ng-model="document.creditBureau" placeholder="อัพโหลด">
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">สมุดธนาคาร</h4>
+                <input type="file" class="input-info" ng-model="document.bookBank" placeholder="อัพโหลด">
+            </div>
+        </div> -->
+        <div class="item col-1">
+            <div>
+                <h4 class="title">สลิปเงินเดือน เดือนล่าสุด </h4>
+
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">หนังสือรับรองเงินเดือน อายุไม่เกิน 2 เดือน</h4>
+
+            </div>
+        </div>
+        <div class="item col-1">
+            <div class="required">
+                <h4 class="title">Bank Statement 6 เดือนล่าสุด</h4>
+
+            </div>
+        </div>
+        <div class="item col-1" ng-show="loanDetail.purpose == 'โอนหนี้บัตรเครดิต/สินเชื่อส่วนบุคคล'">
+            <div>
+                <h4 class="title">ใบแจ้งหนี้บัตรเครดิต</h4>
+
+            </div>
+        </div>
+        <div class="item col-1">
+            <div>
+                <h4 class="title">เอกสารเพิ่มเติม</h4>
+
+            </div>
+        </div>
+    </div>
+</form>
